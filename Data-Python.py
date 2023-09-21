@@ -45,6 +45,21 @@ def get_node(head, index): # Get node value
     else:
         print("Error")
 
+def remove_node(head, value): # Remove node value
+    p = head
+    q = None
+    while p!= None and p.value != value:
+        q = p
+        p = p.next
+    if p == None:
+        print("Node doesn't exist")
+    else:
+        if p == head:
+            head = head.next
+        else:
+            q.next = p.next
+    return head
+
 node_1 = ListNode(4) # Add value to node_1
 node_2 = ListNode(1) # Add value to node_1
 node_3 = ListNode(2) # Add value to node_1
