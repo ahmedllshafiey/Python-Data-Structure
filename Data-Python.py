@@ -60,11 +60,72 @@ def remove_node(head, value): # Remove node value
             q.next = p.next
     return head
 
-node_1 = ListNode(4) # Add value to node_1
-node_2 = ListNode(1) # Add value to node_1
-node_3 = ListNode(2) # Add value to node_1
+# Stack
+class Stack:
+    def __init__(self):
+        self.s =[]
+    
+    # Add element to stack
+    def push(self, value):
+        self.s.append(value)
+    
+    # Remove element from stack
+    def pop(self):
+        if self.isEmpty():
+            return None
+        else:
+            self.s.pop()
+    
+    # Is stack empty
+    def isEmpty(self):
+        if len(self.s) == 0:
+            return True
+        else:
+            return False
+    
+    # Reture last element
+    def top(self):
+        if self.isEmpty():
+            return None
+        else:
+            return self.s[-1] 
 
-node_1.next = node_2 # Add value next
-node_2.next = node_3 # Add value next
+# Queue
+class Queue:
+    def __init__(self):
+        self.q = []
+    
+    # Add element to queue
+    def enqueue(self, value):
+        self.q.append(value)
 
-head = node_1 # Creating head of list
+    # Remove elemnet from queue
+    def dequeue(self):
+        self.q.pop(0)
+
+    # Return front(first element) in queue
+    def front(self):
+        return self.q[0]
+
+# Recursion
+def fact(x):
+    if x == 0:
+        return 1
+    else:
+        return (x * fact(x-1))
+    
+# Binary Search
+def binary_search(data, value):
+    l = 0
+    h = len(data) - 1
+
+    while l <= h:
+        m =  (l + h) // 2
+        if data[m] == value:
+            return True
+        elif data[m] > value:
+            h = m - 1
+        else: 
+            l = m + 1
+
+    return False
