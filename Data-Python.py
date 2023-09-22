@@ -160,8 +160,8 @@ def inertion_sort(arr):
             arr[j - 1], arr[j] = arr[j], arr[j - 1]
             j = j - 1 
 
-# Merge tow sorted arrays
-def merge_two_lists(a,b):
+# Merge two sorted arrays
+def merge_two_lists(a, b):
     n = len(a)
     m = len(b)
     i = 0
@@ -171,7 +171,7 @@ def merge_two_lists(a,b):
         if a[i] < b[j]:
             result.append(a[i])
             i = i + 1
-    else:
+        else:
             result.append(b[j])
             j = j + 1
     while i < n:
@@ -179,6 +179,35 @@ def merge_two_lists(a,b):
         i = i + 1
     while j < m:
         result.append(b[j])
-        j = j + 1 
-
+        j = j + 1
     return result
+
+def merge_sort(arr):
+    n = len(arr)
+    if n <= 1:  # Base case: return the array itself if it's empty or has only one element
+        return arr
+    mid = n // 2
+    a = merge_sort(arr[0:mid])
+    b = merge_sort(arr[mid:n])
+    r = merge_two_lists(a, b)
+    return r
+
+# Binary Tree
+class BinaryTreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+node_1 = BinaryTreeNode(1)
+node_2 = BinaryTreeNode(2)
+node_3 = BinaryTreeNode(3)
+node_4 = BinaryTreeNode(4)
+node_5 = BinaryTreeNode(5)
+node_6 = BinaryTreeNode(6)
+
+node_1.left = node_2
+node_1.right = node_3
+node_2.right = node_5
+node_2.left = node_4
+node_3.right = node_6
