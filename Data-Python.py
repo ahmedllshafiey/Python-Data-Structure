@@ -129,3 +129,56 @@ def binary_search(data, value):
             l = m + 1
 
     return False
+
+# Selection Sorting
+def selection_sort(list):
+    n = len(list)
+    for i in range(n):
+        index_min = i
+        for j in range(i, n):
+            if list[j] < list[index_min]:
+                index_min = j
+        list[index_min], list[i] = list[i], list[index_min]
+
+# Bubble Sorting
+def bubble_sort(arr):
+    n= len(arr)
+    permutation = True
+    while permutation:
+        permutation = False
+        for i in range(n - 1):
+            if arr[i] > arr[i + 1]:
+                arr[i], arr[i + 1] = arr[i + 1], arr[i]
+                permutation = True
+
+# Insertion Sorting
+def inertion_sort(arr):
+    n = len(arr)
+    for i in range(1, n):
+        j = i
+        while j > 0 and arr[j-1] >arr[j]:
+            arr[j - 1], arr[j] = arr[j], arr[j - 1]
+            j = j - 1 
+
+# Merge tow sorted arrays
+def merge_two_lists(a,b):
+    n = len(a)
+    m = len(b)
+    i = 0
+    j = 0
+    result = []
+    while i < n and j < m:
+        if a[i] < b[j]:
+            result.append(a[i])
+            i = i + 1
+    else:
+            result.append(b[j])
+            j = j + 1
+    while i < n:
+        result.append(a[i])
+        i = i + 1
+    while j < m:
+        result.append(b[j])
+        j = j + 1 
+
+    return result
