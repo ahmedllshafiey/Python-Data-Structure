@@ -184,7 +184,7 @@ def merge_two_lists(a, b):
 
 def merge_sort(arr):
     n = len(arr)
-    if n <= 1:  # Base case: return the array itself if it's empty or has only one element
+    if n <= 1:
         return arr
     mid = n // 2
     a = merge_sort(arr[0:mid])
@@ -198,6 +198,14 @@ class BinaryTreeNode:
         self.value = value
         self.left = None
         self.right = None
+
+# Transverse binary tree
+def pre_order(node_1):
+    if node_1 == None:
+        return
+    print(node_1.value)
+    pre_order(node_1.left)
+    pre_order(node_1.right)
 
 node_1 = BinaryTreeNode(1)
 node_2 = BinaryTreeNode(2)
