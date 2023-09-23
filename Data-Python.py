@@ -219,3 +219,38 @@ node_1.right = node_3
 node_2.right = node_5
 node_2.left = node_4
 node_3.right = node_6
+
+# Ajanencey List
+def adj_list(n, edges):
+    graph = [[] for i in range(n)]
+    for e in edges:
+        a = e[0]
+        b = e[1]
+        graph[a].append(b)
+        graph[b].append(a)
+    return graph
+
+# Depth First Search - DFS
+def dfs(graph, visited, current_node):
+    visited[current_node] = True
+    print(current_node)
+    for node in graph[current_node]:
+        if visited[node]:
+            continue
+        dfs(graph, visited, node)
+
+n = 5
+edges = [(0,1),(0,2),(0,4),(1,2),(1,3),(2,3)]
+
+graph = adj_list(n, edges)
+visited = [False for i in range(n)]
+
+# Hash Tables
+list = [1,1,1,1,1,1,3,3,3,4,5,5,5,5,6,7,7,7,78,78,78]
+d = dict()
+
+for e in list:
+    if e in d.keys():
+        d[e] += 1
+    else:
+        d[e] = 1
